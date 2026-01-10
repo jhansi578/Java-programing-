@@ -1,0 +1,53 @@
+class Shape {
+
+    double radius;
+    double length, breadth;
+    double base, height;
+
+    // Constructor for Circle
+    Shape(double r) {
+        radius = r;
+    }
+
+    // Constructor for Rectangle
+    Shape(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+
+    // Constructor for Triangle
+    Shape(double b, double h, boolean isTriangle) {
+        base = b;
+        height = h;
+    }
+
+    // Area of Circle
+    double calculateCircleArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Area of Rectangle
+    double calculateRectangleArea() {
+        return length * breadth;
+    }
+
+    // Area of Triangle
+    double calculateTriangleArea() {
+        return 0.5 * base * height;
+    }
+
+    public static void main(String[] args) {
+
+        // Circle
+        Shape circle = new Shape(7.5);
+        System.out.println("Area of Circle: " + circle.calculateCircleArea());
+
+        // Rectangle
+        Shape rectangle = new Shape(10.0, 5.0);
+        System.out.println("Area of Rectangle: " + rectangle.calculateRectangleArea());
+
+        // Triangle
+        Shape triangle = new Shape(8.0, 6.0, true);
+        System.out.println("Area of Triangle: " + triangle.calculateTriangleArea());
+    }
+}
