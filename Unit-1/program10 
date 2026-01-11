@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class PangramChecker {
+
+    // Method to check if a string is a pangram
+    public static boolean isPangram(String str) {
+        str = str.toLowerCase(); // Convert to lowercase
+
+        boolean[] alphabet = new boolean[26]; // Track letters a–z
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (ch >= 'a' && ch <= 'z') {
+                alphabet[ch - 'a'] = true;
+            }
+        }
+
+        // Check if all letters are present
+        for (boolean letter : alphabet) {
+            if (!letter) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = sc.nextLine();
+
+        if (isPangram(input)) {
+            System.out.println("The string is a Pangram.");
+        } else {
+            System.out.println("The string is NOT a Pangram.");
+        }
+
+        sc.close();
+    }
+}
