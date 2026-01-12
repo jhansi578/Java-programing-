@@ -1,0 +1,63 @@
+// Abstract class
+abstract class Shape {
+
+    // Abstract method to calculate area
+    abstract double calculateArea();
+}
+
+// Rectangle class
+class Rectangle extends Shape {
+    double length, width;
+
+    Rectangle(double l, double w) {
+        length = l;
+        width = w;
+    }
+
+    double calculateArea() {
+        return length * width;
+    }
+}
+
+// Circle class
+class Circle extends Shape {
+    double radius;
+
+    Circle(double r) {
+        radius = r;
+    }
+
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+// Triangle class
+class Triangle extends Shape {
+    double base, height;
+
+    Triangle(double b, double h) {
+        base = b;
+        height = h;
+    }
+
+    double calculateArea() {
+        return 0.5 * base * height;
+    }
+}
+
+// Main class
+public class AbstractShapeExample {
+    public static void main(String[] args) {
+
+        // Create objects for each shape
+        Shape rectangle = new Rectangle(10, 5);
+        Shape circle = new Circle(7);
+        Shape triangle = new Triangle(6, 4);
+
+        // Display areas
+        System.out.println("Rectangle Area : " + rectangle.calculateArea());
+        System.out.println("Circle Area    : " + circle.calculateArea());
+        System.out.println("Triangle Area  : " + triangle.calculateArea());
+    }
+}
