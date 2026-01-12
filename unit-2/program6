@@ -1,0 +1,61 @@
+class Animal {
+    String name;
+
+    Animal(String n) {
+        name = n;
+        System.out.println("Animal constructor called");
+    }
+
+    void eat() {
+        System.out.println(name + " is eating.");
+    }
+}
+
+// Intermediate class (Parent)
+class Mammal extends Animal {
+
+    Mammal(String name) {
+        super(name); // call Animal constructor
+        System.out.println("Mammal constructor called");
+    }
+
+    void breathe() {
+        System.out.println(name + " is breathing air.");
+    }
+}
+
+// Derived class (Child)
+class Dog extends Mammal {
+    String breed;
+
+    Dog(String n, String b) {
+        super(n); // call Mammal constructor
+        breed = b;
+        System.out.println("Dog constructor called");
+    }
+
+    void sound() {
+        System.out.println(name + " barks: Woof Woof!");
+    }
+
+    void display() {
+        System.out.println("Dog Name : " + name);
+        System.out.println("Breed    : " + breed);
+    }
+}
+
+// Main class
+public class MultilevelInheritanceDemo {
+    public static void main(String[] args) {
+
+        Dog dog1 = new Dog("Tommy", "German Shepherd");
+
+        System.out.println("\n----- Dog Details -----");
+        dog1.display();
+
+        System.out.println("\n----- Dog Actions -----");
+        dog1.eat();      // from Animal
+        dog1.breathe();  // from Mammal
+        dog1.sound();    // from Dog
+    }
+}
