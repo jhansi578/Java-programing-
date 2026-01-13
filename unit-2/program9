@@ -1,0 +1,40 @@
+// Superclass
+class Animal {
+    void sound() {
+        System.out.println("Some generic animal sound");
+    }
+}
+
+// Subclass 1
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+// Subclass 2
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+// Main class
+public class RuntimePolymorphismExample {
+    public static void main(String[] args) {
+
+        Animal myAnimal;   // reference of type Animal
+
+        myAnimal = new Dog();  // Dog object
+        myAnimal.sound();      // Calls Dog's sound() at runtime
+
+        myAnimal = new Cat();  // Cat object
+        myAnimal.sound();      // Calls Cat's sound() at runtime
+
+        // Using superclass object
+        Animal genericAnimal = new Animal();
+        genericAnimal.sound(); // Calls Animal's sound()
+    }
+}
