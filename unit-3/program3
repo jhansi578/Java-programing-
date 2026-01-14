@@ -1,0 +1,43 @@
+class DaemonThreadExample extends Thread {
+
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Daemon thread running...");
+                Thread.sleep(1000); // Sleep 1 second
+            }
+        } catch (InterruptedException e) {
+            System.out.println("Daemon thread interrupted");
+        } finally {
+            System.out.println("Daemon thread finally block executed");
+        }
+    }
+}
+
+public class DaemonThreadDemo {
+
+    public static void main(String[] args) {
+
+        DaemonThreadExample daemonThread = new DaemonThreadExample();
+
+        // Set thread as daemon
+        daemonThread.setDaemon(true);
+
+        // Start daemon thread
+        daemonThread.start();
+
+        // Main thread (user thread)
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Main thread running: " + i);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                System.out.println("Main thread interrupted");
+            }
+        }
+
+        System.out.println(
+            "Main thread finished, daemon thread will terminate automatically."
+        );
+    }
+}
