@@ -1,0 +1,54 @@
+class GoodMorningRunnable implements Runnable {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Good Morning");
+                Thread.sleep(1000); // 1 second
+            }
+        } catch (InterruptedException e) {
+            System.out.println("GoodMorningRunnable interrupted");
+        }
+    }
+}
+
+class HelloRunnable implements Runnable {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Hello");
+                Thread.sleep(2000); // 2 seconds
+            }
+        } catch (InterruptedException e) {
+            System.out.println("HelloRunnable interrupted");
+        }
+    }
+}
+
+class WelcomeRunnable implements Runnable {
+    public void run() {
+        try {
+            while (true) {
+                System.out.println("Welcome");
+                Thread.sleep(3000); // 3 seconds
+            }
+        } catch (InterruptedException e) {
+            System.out.println("WelcomeRunnable interrupted");
+        }
+    }
+}
+
+public class MultiThreadRunnableExample {
+    public static void main(String[] args) {
+        Runnable r1 = new GoodMorningRunnable();
+        Runnable r2 = new HelloRunnable();
+        Runnable r3 = new WelcomeRunnable();
+
+        Thread t1 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        Thread t3 = new Thread(r3);
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
