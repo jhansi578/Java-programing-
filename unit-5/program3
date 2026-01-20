@@ -1,0 +1,26 @@
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+class LRUCache extends LinkedHashMap<Integer, Integer> {
+    int capacity;
+
+    LRUCache(int cap) {
+        super(cap, 0.75f, true);
+        capacity = cap;
+    }
+
+    protected boolean removeEldestEntry(Map.Entry<Integer, Integer> e) {
+        return size() > capacity;
+    }
+
+    public static void main(String[] args) {
+        LRUCache cache = new LRUCache(3);
+        cache.put(1, 10);
+        cache.put(2, 20);
+        cache.put(3, 30);
+        cache.get(1);
+        cache.put(4, 40);
+
+        System.out.println(cache);
+    }
+}
