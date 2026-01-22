@@ -1,0 +1,14 @@
+interface Sayable {
+    void say();
+}
+
+class MethodRef {
+    static void hello() {
+        System.out.println("Hello Java");
+    }
+
+    public static void main(String[] args) {
+        Sayable s = MethodRef::hello;
+        s.say();
+    }
+}
